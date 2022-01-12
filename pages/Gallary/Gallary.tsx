@@ -8,6 +8,7 @@ import styles from "../../styles/Gallary.module.scss";
 // react icons
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
+import { AiOutlineInstagram } from "react-icons/ai";
 // swipeable
 import { useSwipeable } from "react-swipeable";
 // import images
@@ -18,6 +19,10 @@ const Gallary: FunctionComponent = () => {
   const [auto, setAuto] = useState<Boolean>(true);
   const toggleIconStyle = {
     fontSize: "3rem",
+    color: "#fff",
+  };
+  const instagramIcon = {
+    fontSize: "1.8rem",
     color: "#fff",
   };
   const switchIconStyle = {
@@ -101,6 +106,15 @@ const Gallary: FunctionComponent = () => {
         )}
         {images[currImg].semester && (
           <span className={styles["semester"]}>{images[currImg].semester}</span>
+        )}
+        {currImg === 19 && (
+          <a
+            href="https://www.instagram.com/aversitymedia/?hl=en"
+            className={styles["instagram-link"]}
+          >
+            <AiOutlineInstagram style={instagramIcon} />
+            <p>aversitymedia</p>
+          </a>
         )}
       </div>
     </div>

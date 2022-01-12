@@ -128,4 +128,18 @@
     color: #fff;
     font-style: italic;
   }
+  .instagram-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    :hover {
+      cursor: pointer;
+    }
+    p {
+      margin-left: 0.3rem;
+    }
+  }
 }
