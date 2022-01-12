@@ -26,12 +26,10 @@ export const images = [
   { title: "বেটুপাত", credit: "প্ৰাচুৰ্য চেতিয়া", img: slide_1 },
   {
     title: "সম্পাদনা সমিতি",
-    credit: null,
     img: slide_2,
   },
   {
     title: "সম্পাদকীয়",
-    credit: null,
     img: slide_3,
   },
   {
@@ -53,7 +51,7 @@ export const images = [
   {
     title: "সৌন্দৰ্য যদি এক সংখ্যা হয়",
     credit: "ৰূপক গোঁহাই",
-    semester: "তৃতীয় ষাম্মাষিক",
+    semester: "তৃতীয় ষান্মাসিক",
     img: slide_7,
   },
   {
@@ -88,14 +86,14 @@ export const images = [
   },
   {
     title: "প্ৰকৃতি আৰু সোনালী অনুপাত",
-    credit: "",
-    semester: "",
+    credit: "ত্ৰিনয়ন দাস & শ্যামলী চুতীয়া",
+    semester: "পঞ্চম ষান্মাসিক",
     img: slide_13,
   },
   {
     title: "প্ৰকৃতি আৰু সোনালী অনুপাত",
-    credit: "",
-    semester: "",
+    credit: "ত্ৰিনয়ন দাস & শ্যামলী চুতীয়া",
+    semester: "পঞ্চম ষান্মাসিক",
     img: slide_14,
   },
   {
@@ -129,8 +127,6 @@ export const images = [
     img: slide_19,
   },
   {
-    title: null,
-    credit: null,
     img: slide_20,
   },
   {
@@ -146,8 +142,7 @@ export const images = [
     img: slide_22,
   },
   {
-    title: "সম্পাদকীয়",
-    credit: null,
+    title: "উন্মোচক স্বাক্ষৰ",
     img: slide_23,
   },
 ];

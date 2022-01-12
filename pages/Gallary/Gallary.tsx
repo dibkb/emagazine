@@ -55,8 +55,8 @@ const Gallary: FunctionComponent = () => {
     <div className={styles["gallary-container"]} {...handlers}>
       <div
         className={styles["img-container"]}
-        onMouseEnter={() => setPause(true)}
-        onMouseLeave={() => setPause(false)}
+        onMouseEnter={useCallback(() => setPause(true), [setPause])}
+        onMouseLeave={useCallback(() => setPause(false), [setPause])}
       >
         <div className={styles["toggle-left"]} onClick={toggleLefthadler}>
           <MdOutlineNavigateBefore style={toggleIconStyle} />
@@ -83,6 +83,9 @@ const Gallary: FunctionComponent = () => {
         <span className={styles["title"]}>{images[currImg].title}</span>
         {images[currImg].credit && (
           <span className={styles["credit"]}>- {images[currImg].credit}</span>
+        )}
+        {images[currImg].semester && (
+          <span className={styles["semester"]}>{images[currImg].semester}</span>
         )}
       </div>
     </div>
