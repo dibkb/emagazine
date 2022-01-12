@@ -7,8 +7,20 @@
   align-items: center;
   height: auto;
 }
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin-right: 1rem;
+    font-size: 0.75rem;
+    font-family: $Inter;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
 .img-container {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

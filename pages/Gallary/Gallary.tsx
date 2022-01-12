@@ -7,17 +7,22 @@ import React, {
 import styles from "../../styles/Gallary.module.scss";
 // react icons
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
+import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
 // swipeable
 import { useSwipeable } from "react-swipeable";
 // import images
 import { images } from "../../helper/images";
 const Gallary: FunctionComponent = () => {
-  console.log("render");
   const [currImg, setCurrImg] = useState(0);
   const [pause, setPause] = useState<Boolean>(false);
+  const [auto, setAuto] = useState<Boolean>(true);
   const toggleIconStyle = {
     fontSize: "3rem",
     color: "#fff",
+  };
+  const switchIconStyle = {
+    fontSize: "3.6rem",
+    color: "#c3f631",
   };
   const dotsArr = Array.from(Array(images.length).keys());
   // toggle hadlers
@@ -39,10 +44,13 @@ const Gallary: FunctionComponent = () => {
     onSwipedLeft: toggleRighthadler,
     onSwipedRight: toggleLefthadler,
   });
+  const toggleAuto = useCallback(() => {
+    setAuto((auto) => !auto);
+  }, [setAuto]);
   // auto cycle
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!pause) {
+      if (!pause && auto) {
         toggleRighthadler();
       }
     }, 2700);
@@ -54,6 +62,12 @@ const Gallary: FunctionComponent = () => {
   });
   return (
     <div className={styles["gallary-container"]} {...handlers}>
+      <div className={styles["toggle-container"]} onClick={toggleAuto}>
+        {!auto && <p>Slideshow Off</p>}
+        {auto && <p>Slideshow On</p>}
+        {!auto && <p>Auto Off</p> && <BsToggle2Off style={switchIconStyle} />}
+        {auto && <p>Auto On</p> && <BsToggle2On style={switchIconStyle} />}
+      </div>
       <div
         className={styles["img-container"]}
         onMouseEnter={useCallback(() => setPause(true), [setPause])}
