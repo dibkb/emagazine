@@ -12,6 +12,7 @@ import { useSwipeable } from "react-swipeable";
 // import images
 import { images } from "../../helper/images";
 const Gallary: FunctionComponent = () => {
+  console.log("render");
   const [currImg, setCurrImg] = useState(0);
   const [pause, setPause] = useState<Boolean>(false);
   const toggleIconStyle = {
