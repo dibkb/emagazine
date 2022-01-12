@@ -1,0 +1,112 @@
+@import "colors";
+@import "fonts";
+.gallary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+.img-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // position: relative;
+  .image {
+    // visibility: hidden;
+    max-height: 81vh;
+    max-width: 96vw;
+    filter: drop-shadow(0px 38px 43px rgba(0, 0, 0, 0.68));
+    position: relative;
+    z-index: -1;
+  }
+  .toggle-left {
+    height: 30%;
+    width: 30%;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+    position: absolute;
+    left: 0;
+    :hover {
+      cursor: pointer;
+      background-color: #161616;
+      box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+  }
+  .toggle-right {
+    height: 30%;
+    width: 30%;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+    position: absolute;
+    right: 0;
+    :hover {
+      cursor: pointer;
+      background-color: #161616;
+      box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+  }
+}
+.dots {
+  padding-top: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 720px;
+  .dot {
+    height: 6px;
+    width: 6px;
+    background-color: $black-700;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-active {
+    background-color: #fff;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: $Assamese;
+  .title {
+    margin-top: 1.8rem;
+    padding: 1.8rem;
+    background: -webkit-linear-gradient(
+      10deg,
+      $orange-gradient,
+      $yellow-gradient
+    );
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // color: #ff6a3a;
+    font-size: 2.81rem;
+    font-weight: 500;
+  }
+  .credit {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+}
