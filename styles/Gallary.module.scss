@@ -32,6 +32,7 @@
     filter: drop-shadow(0px 38px 43px rgba(0, 0, 0, 0.68));
     position: relative;
     z-index: -1;
+    user-select: none;
   }
   .toggle-left {
     height: 30%;

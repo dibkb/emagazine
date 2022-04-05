@@ -5,6 +5,7 @@ import React, {
   useEffect,
 } from "react";
 import styles from "../../styles/Gallary.module.scss";
+console.log(styles);
 // react icons
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
@@ -13,6 +14,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { useSwipeable } from "react-swipeable";
 // import images
 import { images } from "../../helper/images";
+import { motion } from "framer-motion";
 const Gallary: FunctionComponent = () => {
   const [currImg, setCurrImg] = useState(0);
   const [pause, setPause] = useState<Boolean>(false);
@@ -81,11 +83,28 @@ const Gallary: FunctionComponent = () => {
         <div className={styles["toggle-left"]} onClick={toggleLefthadler}>
           <MdOutlineNavigateBefore style={toggleIconStyle} />
         </div>
-        <img
-          src={images[currImg].img.src}
-          alt={images[currImg].title}
-          className={styles["image"]}
-        />
+        {currImg === 19 && (
+          <motion.img
+            src={images[currImg].img.src}
+            alt={images[currImg].title}
+            className={styles["image"]}
+            animate={{
+              scale: [1.02, 1],
+              transition: {
+                duration: 0.6,
+                yoyo: Infinity,
+              },
+            }}
+          />
+        )}
+        {currImg !== 19 && (
+          <img
+            src={images[currImg].img.src}
+            alt={images[currImg].title}
+            className={styles["image"]}
+          />
+        )}
+
         <div className={styles["toggle-right"]} onClick={toggleRighthadler}>
           <MdOutlineNavigateNext style={toggleIconStyle} />
         </div>
