@@ -5,16 +5,28 @@ import React, {
   useEffect,
 } from "react";
 import styles from "../../styles/Gallary.module.scss";
-console.log(styles);
 // react icons
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
+import { TiWorld } from "react-icons/ti";
 import { AiOutlineInstagram } from "react-icons/ai";
 // swipeable
 import { useSwipeable } from "react-swipeable";
 // import images
 import { images } from "../../helper/images";
 import { motion } from "framer-motion";
+export const linkAnimation = {
+  hover: {
+    scale: 1.1,
+    transition: {
+      type: "spring",
+      stiffness: 200,
+    },
+  },
+  click: {
+    scale: 1.2,
+  },
+};
 const Gallary: FunctionComponent = () => {
   const [currImg, setCurrImg] = useState(0);
   const [pause, setPause] = useState<Boolean>(false);
@@ -118,22 +130,45 @@ const Gallary: FunctionComponent = () => {
           }
         })}
       </div>
-      <div className={styles["info"]}>
-        <span className={styles["title"]}>{images[currImg].title}</span>
-        {images[currImg].credit && (
-          <span className={styles["credit"]}>- {images[currImg].credit}</span>
+      <div className={currImg === 19 ? styles["info__19"] : styles["info"]}>
+        {currImg !== 19 && (
+          <>
+            <span className={styles["title"]}>{images[currImg].title}</span>
+            {images[currImg].credit && (
+              <span className={styles["credit"]}>
+                - {images[currImg].credit}
+              </span>
+            )}
+            {images[currImg].semester && (
+              <span className={styles["semester"]}>
+                {images[currImg].semester}
+              </span>
+            )}
+          </>
         )}
-        {images[currImg].semester && (
-          <span className={styles["semester"]}>{images[currImg].semester}</span>
-        )}
+
         {currImg === 19 && (
-          <a
-            href="https://www.instagram.com/aversitymedia/?hl=en"
-            className={styles["instagram-link"]}
-          >
-            <AiOutlineInstagram style={instagramIcon} />
-            <p>aversitymedia</p>
-          </a>
+          <div className={styles["company__social"]}>
+            <motion.span
+              className={styles["website"]}
+              whileHover={"hover"}
+              variants={linkAnimation}
+              whileTap={"click"}
+            >
+              <TiWorld style={instagramIcon} />
+              <a href="https://www.aversitymedia.com/">aversitymedia.com</a>
+            </motion.span>
+            <motion.a
+              href="https://www.instagram.com/aversitymedia/?hl=en"
+              className={styles["instagram-link"]}
+              whileHover={"hover"}
+              variants={linkAnimation}
+              whileTap={"click"}
+            >
+              <AiOutlineInstagram style={instagramIcon} />
+              <p>aversitymedia</p>
+            </motion.a>
+          </div>
         )}
       </div>
     </div>
